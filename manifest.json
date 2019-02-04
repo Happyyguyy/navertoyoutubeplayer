@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "Naver to Youtube player",
+    "version": "0.0.1",
+    "permissions": [
+        "identity",
+        "tabs",
+        "declarativeContent",
+        "webRequest",
+        "webRequestBlocking",
+        "https://hls-music.pstatic.net/*",
+        "https://www.youtube.com/iframe_api",
+        "https://playerui.music.naver.com/"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://playerui.music.naver.com/"],
+            "run_at": "document_start",
+            "js": ["apikey.js", "jquery-3.3.1.min.js", "www-widgetapi.js", "iframe.js", "youtube_frame.js", "get.js", "keypress.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["jquery-3.3.1.min.js", "background.js"],
+        "persistent": true
+    },
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "content_security_policy": "script-src 'self' https://www.youtube.com https://s.ytimg.com; object-src 'self' https://www.youtube.com",
+    "oauth2": {
+        "client_id": "1012549113288-8pd9nd07qilp6ka2l80kqpduec2ejnpj.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/youtube.readonly"
+        ]
+    }
+}
