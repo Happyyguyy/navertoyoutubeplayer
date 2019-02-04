@@ -31,16 +31,12 @@ function onPlayerStateChange(event) {
     setButton("pause")
     next.click()
 
+  } else if (event.data === YT.Playerstate.UNSTARTED) {
+    setTimeout(function() {
+      setButton("pause")
+      if (player.getPlayerState() == YT.PlayerState.UNSTARTED) {
+        nextSong()
+      }
+    }, 5000)
   }
-  // else if (event.data === YT.PlayerState.UNSTARTED) {
-  //   setTimeout(function() {
-  //     setButton("pause")
-  //     if (player.getPlayerState() == YT.PlayerState.UNSTARTED) {
-  //       nextSong("next")
-  //       setTimeout(() => {
-  //         if (player.getPlayerState() == YT.PlayerState.UNSTARTED) {next.click()}
-  //       }, 5000)
-  //     }
-  //   }, 5000)
-  // }
 }
