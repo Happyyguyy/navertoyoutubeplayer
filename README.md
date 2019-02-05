@@ -33,9 +33,13 @@ if video is unplayable in iframe, the player advances to the next song
 
 extension listens to the current play time and load percentages and adjusts the web player progress bar.
 
+defaults to hardcoded playlist when daily quota is reached
+
 
 
 
 todo:
 
 add feature to youtube fallback when youtube data api quota reached.
+
+add feature to cache youtube video ids to limit api calls for repeated plays: use chrome extension storage api. 
