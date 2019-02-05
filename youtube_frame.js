@@ -4,7 +4,10 @@ function onYouTubeIframeAPIReady(videoID) {
   player = new YT.Player('player', {
     height: '200',
     width: '200',
-    videoId: 'M7lc1UVf-VE',
+    playerVars: {
+      listType: 'playlist',
+      list: "RDQG8bUKBT9FI"
+    },
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -14,7 +17,7 @@ function onYouTubeIframeAPIReady(videoID) {
 }
 
 function onPlayerReady(event) {
-  setButton("play");
+  setButton("pause");
   event.target.playVideo();
   nextSong()
 }

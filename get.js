@@ -73,14 +73,18 @@ function nextSong(mutationsList, observer) {
     url: "https://www.googleapis.com/youtube/v3/search",
     data: {
       part: "id",
-      q: title + " " + artist + "가사",
+      q: title + " " + artist + " 가사",
       key: APIKEY,
     },
     success: function(result) {
       player.loadVideoById(result["items"][i]["id"]["videoId"])
       console.log(result);
     },
-    error: function(a,b,c) {console.log(a);console.log(b);console.log(c);}
+    error: function(a,b,c) {
+      alert("Quota for the day reached. Playing default playlist");
+      player.loadPlaylist({list: "RDQG8bUKBT9FI"})
+
+    }
   })
 
 }
