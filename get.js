@@ -64,28 +64,10 @@ function nextSong(mutationsList, observer) {
   console.log(i);
   title = getTitle().innerHTML
   artist = getArtist().innerHTML
-
+  getId(artist, title, playVideo)
   // chrome.runtime.sendMessage({title: title, artist: artist}, function(result) {
   //   player.loadVideoById(result["items"][i]["id"]["videoId"])
   // })
-  $.ajax({
-    dataType: "json",
-    url: "https://www.googleapis.com/youtube/v3/search",
-    data: {
-      part: "id",
-      q: title + " " + artist + " 가사",
-      key: APIKEY,
-    },
-    success: function(result) {
-      player.loadVideoById(result["items"][i]["id"]["videoId"])
-      console.log(result);
-    },
-    error: function(a,b,c) {
-      alert("Quota for the day reached. Playing default playlist");
-      player.loadPlaylist({list: "RDQG8bUKBT9FI"})
-
-    }
-  })
 
 }
 
@@ -113,4 +95,14 @@ function setButton(state) {
 // TODO: implement proper total time
 function formatTime(seconds) {
   return Math.floor(seconds/60) + ":" + Math.round(seconds % 60)
+}
+
+
+function playVideo(id) {
+  console.log("playing: ", id);
+  if (typeof(id) == "object") {
+    player.loadPlaylist(id)
+  } else if (typeof(id) == "string") {
+    player.loadVideoById(id)
+  }
 }

@@ -3,6 +3,7 @@
     "name": "Naver to Youtube player",
     "version": "0.0.1",
     "permissions": [
+        "storage",
         "identity",
         "tabs",
         "declarativeContent",
@@ -16,7 +17,7 @@
         {
             "matches": ["https://playerui.music.naver.com/"],
             "run_at": "document_start",
-            "js": ["apikey.js", "jquery-3.3.1.min.js", "www-widgetapi.js", "iframe.js", "youtube_frame.js", "get.js", "keypress.js"]
+            "js": ["apikey.js", "jquery-3.3.1.min.js", "www-widgetapi.js", "iframe.js", "youtube_frame.js", "cache_service.js", "get.js", "keypress.js"]
         }
     ],
     "background": {
