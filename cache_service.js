@@ -11,9 +11,13 @@ function getId(artist, title, callback) {
     if (result[artist+title] === undefined) {
       console.log("no cached id");
       searchSong(artist, title, function(id) {
-        cacheId(artist+title, id, function(id) {
+        if (typeof(id) === 'string') {
+          cacheId(artist+title, id, function(id) {
+            callback(id)
+          })
+        } else {
           callback(id)
-        })
+        }
       })
     } else {
       console.log("cached id found: ", result[artist+title]);
