@@ -18,7 +18,7 @@ Motivation:
   Naver Music on the other hand provides all the Korean music but as a streaming service, one must purchase the premium service. However, non paying free users get full access to the music site and get to play music _but_ limited to only 1min of playback. 
 
   This solution uses the Naver Music web player to take song data and automatically play a youtube video. 
-  Now I have access to all the korean music and real-time charts I need with the convenience of
+  Now I have access to all the korean music and real-time charts I need without the need to purchase the streaming service
 
 
 implementation:
